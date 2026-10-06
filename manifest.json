@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "name": "Atende — Captura automática OS 8",
+  "version": "1.10.4",
+  "description": "Abre uma solicitação do tipo 8 e captura sua descrição ao clicar em Executar.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "alarms"
+  ],
+  "host_permissions": [
+    "https://servicos.goiania.go.gov.br/*",
+    "https://intra004.goiania.go.gov.br/*",
+    "https://eresolve.goiania.go.gov.br/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://servicos.goiania.go.gov.br/*",
+        "https://intra004.goiania.go.gov.br/*",
+        "https://eresolve.goiania.go.gov.br/*"
+      ],
+      "js": [
+        "panel.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "popup.html"
+      ],
+      "matches": [
+        "https://servicos.goiania.go.gov.br/*",
+        "https://intra004.goiania.go.gov.br/*",
+        "https://eresolve.goiania.go.gov.br/*"
+      ]
+    }
+  ],
+  "action": {
+    "default_title": "Capturar OS 8",
+    "default_popup": "popup.html"
+  }
+}

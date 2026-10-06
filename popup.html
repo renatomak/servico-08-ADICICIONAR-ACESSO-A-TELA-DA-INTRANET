@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Capturar OS 8</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header><span>ATENDE · OS 8</span><h1>Atendimento sem fila</h1></header>
+  <p>Atende uma OS por vez. Informe o número da OS para atendimento direto ou deixe em branco para pegar a próxima OS 08 da lista exibida.</p>
+  <label for="osNumero">Número da OS</label>
+  <input id="osNumero" type="text" inputmode="numeric" autocomplete="off" placeholder="Ex.: 1959319" aria-describedby="osNumeroAjuda">
+  <p id="osNumeroAjuda" class="nota">Use somente números. Campo opcional.</p>
+  <button id="executar">Executar atendimento</button>
+  <button id="pararFila" class="secondary" style="margin-top:8px">Parar após a OS atual</button>
+  <p id="filaResumo"></p>
+  <p id="status" role="status" aria-live="polite">Pronto para iniciar.</p>
+  <a id="origem" target="_blank" rel="noopener" hidden>Ver solicitação</a>
+  <label for="descricao">Descrição da OS</label>
+  <textarea id="descricao" readonly placeholder="O texto capturado aparecerá aqui."></textarea>
+  <button id="copiar" class="secondary" disabled>Copiar texto</button>
+  <button id="consultarGrupos" style="margin-top:10px" disabled>Consultar espelhos e incluir destino</button>
+  <button id="incluirGrupos" style="margin-top:10px" disabled>Incluir destino nos grupos guardados</button>
+  <p id="inclusaoResumo" style="white-space:pre-wrap"></p>
+  <label for="diagnosticoResumo">Diagnóstico por fase</label>
+  <p id="diagnosticoResumo" style="white-space:pre-wrap">Nenhum diagnóstico registrado.</p>
+  <button id="fecharOs" style="margin-top:10px" disabled>Receber e fechar OS concluída</button>
+  <p id="fechamentoResumo" style="white-space:pre-wrap"></p>
+  <label for="grupos">Grupos guardados</label>
+  <p id="gruposResumo">Nenhuma consulta guardada.</p>
+  <textarea id="grupos" readonly style="height:100px" placeholder="Códigos dos grupos"></textarea>
+  <details><summary>OSs puladas por matrícula inválida</summary><p id="errosOs">Nenhum erro registrado.</p></details>
+  <p class="nota">Executar captura a OS, consulta os espelhos com prefixo M e inclui a matrícula destino nos grupos encontrados. O resultado de cada inclusão fica registrado abaixo.</p>
+  <script src="popup.js"></script>
+</body>
+</html>
